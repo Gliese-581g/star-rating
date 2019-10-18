@@ -1,0 +1,58 @@
+.main {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.topic {
+    /* order: 1; */
+    padding-right: 20px;
+}
+
+.rating {
+    /* order: 2; */
+    position: relative;
+}
+
+.evaluate {
+    width: 400px;
+    padding-left: 20px;
+    /* order: 3; */
+}
+
+label {
+    color: #ddd;
+    float: right;
+    font-size: 1.6em;
+}
+
+label::before {
+    content: "★";
+
+    padding: 0 3px 0 0;
+}
+
+.rating>input:checked~label,
+.rating:not(:checked)>label:hover,
+.rating:not(:checked)>label:hover~label {
+    color: #ddd700;
+}
+
+.rating>input:checked~label:hover,
+.rating>label:hover~input:checked~label,
+.rating>input:checked~label:hover~label {
+    opacity: 0.5;
+}
+
+.alt {
+    position: absolute;
+    display: none;
+    top: 20px;
+    left: -80px;
+    font-size: .85em;
+    width: 175px;
+    height: 70px;
+    padding: 15px 10px 0 3px;
+    background: url(images/icon.gif) no-repeat;
+}

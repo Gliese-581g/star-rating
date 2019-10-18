@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.onload = init;
+
+        function init() {
+            const rating = document.querySelector(".rating");
+            const evaluate = document.querySelector(".evaluate");
+            rating.onclick = function (e) {
+                switch (parseInt(e.target.value)) {
+                    case 5:
+                        evaluate.innerHTML = "5分 (质量非常好，与卖家描述的完全一致，非常满意)";
+                        break;
+                    case 4:
+                        evaluate.innerHTML = "4分 (质量不错，与卖家描述的基本一致，还是挺满意的)";
+                        break;
+                    case 3:
+                        evaluate.innerHTML = "3分 (质量一般，没有卖家描述的那么好)";
+                        break;
+                    case 2:
+                        evaluate.innerHTML = "2分 (部分有破损，与卖家描述的不符，不满意)";
+                        break;
+                    case 1:
+                        evaluate.innerHTML = "1分 (差得太离谱，与卖家描述的严重不符，非常不满)";
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            const alt = document.querySelector(".alt");
+            rating.addEventListener("mouseover", function (e) {
+                switch (parseInt(e.target.id)) {
+                    case 5:
+                        alt.style.display = "block";
+                        alt.style.left = "20px";
+                        alt.innerHTML = "5分 (质量非常好，与卖家描述的完全一致，非常满意)";
+                        break;
+                    case 4:
+                        alt.style.display = "block";
+                        alt.style.left = "-5px";
+                        alt.innerHTML = "4分 (质量不错，与卖家描述的基本一致，还是挺满意的)";
+                        break;
+                    case 3:
+                        alt.style.display = "block";
+                        alt.style.left = "-30px";
+                        alt.innerHTML = "3分 (质量一般，没有卖家描述的那么好)";
+                        break;
+                    case 2:
+                        alt.style.display = "block";
+                        alt.style.left = "-55px";
+                        alt.innerHTML = "2分 (部分有破损，与卖家描述的不符，不满意)";
+                        break;
+                    case 1:
+                        alt.style.display = "block";
+                        alt.style.left = "-80px";
+                        alt.innerHTML = "1分 (差得太离谱，与卖家描述的严重不符，非常不满)";
+                        break;
+
+                    default:
+                        break;
+                }
+            });
+            rating.addEventListener("mouseout", function(){
+                alt.style.display = "none";
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <p class="topic">点击星星就能评分</p>
+        <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5" hidden />
+            <label for="star5" id="5"></label>
+            <input type="radio" id="star4" name="rating" value="4" hidden />
+            <label for="star4" id="4"></label>
+            <input type="radio" id="star3" name="rating" value="3" hidden />
+            <label for="star3" id="3"></label>
+            <input type="radio" id="star2" name="rating" value="2" hidden />
+            <label for="star2" id="2"></label>
+            <input type="radio" id="star1" name="rating" value="1" hidden />
+            <label for="star1" id="1"></label>
+            <p class="alt"></p>
+        </div>
+        <p class="evaluate"></p>
+    </div>
+</body>
+
+</html>
